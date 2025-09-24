@@ -1,0 +1,4 @@
+# Auto-set Hyprland instance signature
+if [ -d "/run/user/$(id -u)/hypr" ]; then
+    export HYPRLAND_INSTANCE_SIGNATURE=$(ls /run/user/$(id -u)/hypr/ | head -n1)
+fi

@@ -11,7 +11,7 @@ echo "Installing dotfiles..."
 
 ###  BACKUP ###
 echo "Backup directory: $BACKUP_DIR"
-mkdir -p "$BACKUP_DIR/config" "$BACKUP_DIR/local/bin" "$BACKUP_DIR/home"
+mkdir -p "$BACKUP_DIR/config" "$BACKUP_DIR/local/bin" "$BACKUP_DIR/home" "$BACKUP_DIR/profile.d"
 # Backup existing configs
 for config in "${configs[@]}"; do
     [ -d ~/.config/$config ] && mv ~/.config/$config "$BACKUP_DIR/config/"
@@ -22,7 +22,12 @@ for script in "${scripts[@]}"; do
 done
 # Backup home files
 [ -f ~/.zshrc ] && mv ~/.zshrc "$BACKUP_DIR/home/"
-
+# Backup existing .profile.d files
+if [ -d ~/.profile.d ]; then
+    for profile in ~/.profile.d/*; do
+        [ -f "$profile" ] && mv "$profile" "$BACKUP_DIR/profile.d/"
+    done
+fi
 
 ### Symlinks ###
 # Create symlinks configs
@@ -37,5 +42,12 @@ for script in "${scripts[@]}"; do
 done
 # Link home files
 [ -f "$DOTFILES/zsh/.zshrc" ] && ln -sf "$DOTFILES/zsh/.zshrc" ~/.zshrc
+# Link .profile.d files
+mkdir -p ~/.profile.d
+if [ -d "$DOTFILES/profile.d" ]; then
+    for profile in "$DOTFILES/profile.d"/*; do
+        [ -f "$profile" ] && ln -sf "$profile" ~/.profile.d/$(basename "$profile")
+    done
+fi
 
 echo "Done! Backup created at: $BACKUP_DIR"
