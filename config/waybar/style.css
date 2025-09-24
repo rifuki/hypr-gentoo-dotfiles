@@ -19,7 +19,8 @@
 /* --- Left Modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
 #workspaces,
 #custom-uptime,
-#cpu {
+#cpu,
+#memory {
   background-color: #1a1b26;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
@@ -37,13 +38,15 @@
   margin-right: 5px; /* Spacing after the workspaces module */
 }
 
-#custom-uptime {
+#custom-uptime,
+#cpu {
   margin-right: 5px; /* Spacing after the uptime module */
 }
 
 /* Simple Hover effects for individual left modules - BRIGHTER COLOR */
 #custom-uptime:hover,
-#cpu:hover {
+#cpu:hover,
+#memory:hover {
   background-color: rgb(41, 42, 53); /* Brighter highlight */
 }
 
@@ -85,7 +88,7 @@
   background-color: rgba(153, 209, 219, 0.1); /* Brighter highlight */
 }
 
-#custom-pomodoro {
+#custom-warp {
     background-color: #1a1b26; /* Consistent dark background */
     padding: 0.3rem 0.7rem; /* Consistent padding with other modules (e.g., cpu, uptime) */
     margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
@@ -100,23 +103,23 @@
     font-weight: 600; /* Slightly bolder for the timer, consistent with clock */
 }
 
-/* Positioning and spacing for the custom-pomodoro module */
-#custom-pomodoro {
+/* Positioning and spacing for the custom-warp module */
+#custom-warp {
     margin-left: 5px; /* Spacing from the previous module (e.g., clock) */
     margin-right: 5px; /* Spacing before the seamless right bar starts (e.g., bluetooth) */
 }
 
-/* Hover effect for the new pomodoro module (consistent with others + rectangular outline) */
-#custom-pomodoro:hover {
+/* Hover effect for the new Warp module (consistent with others + rectangular outline) */
+#custom-warp:hover {
     background-color: rgb(41, 42, 53); /* Brighter highlight, consistent with other individual modules */
     color: #c6d0f5; /* Text color change on hover, consistent with other individual modules */
     outline: 1px solid rgba(255, 255, 255, 0.1); /* Rectangular outline on hover */
     outline-offset: -1px;
 }
 
-/* --- Highlighted state for Pomodoro module when running (work or break) --- */
-#custom-pomodoro.work,
-#custom-pomodoro.break {
+/* --- Highlighted state for Warp module when running (work or break) --- */
+#custom-warp.work,
+#custom-warp.break {
   color: #99d1db; /* Text color consistent with active workspaces button */
   background-color: rgba(153, 209, 219, 0.1); /* Background color consistent with active workspaces button */
   box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2); /* Inner shadow for outline effect */
@@ -161,10 +164,14 @@
   margin-right: 7px;
 }
 
+
 #custom-uptime {
   color: #babbf1;
 }
 #cpu {
+  color: #c6d0f5;
+}
+#memory {
   color: #c6d0f5;
 }
 
@@ -173,24 +180,6 @@
   font-weight: 500;
 }
 
-#wireplumber {
-  color: #c6d0f5;
-}
-#backlight {
-  color: #c6d0f5;
-}
-
-#network {
-  color: #c6d0f5;
-}
-
-#network.disconnected {
-  color: #e78284;
-}
-
-#custom-lock {
-  color: #babbf1;
-}
 #bluetooth {
   color: #888888;
   font-size: 16px;
@@ -201,6 +190,18 @@
 #bluetooth.connected {
   color: #99d1db;
 }
+#network {
+  color: #c6d0f5;
+}
+#network.disconnected {
+  color: #e78284;
+}
+#wireplumber {
+  color: #c6d0f5;
+}
+#backlight {
+  color: #c6d0f5;
+}
 #battery {
   color: #99d1db;;
 }
@@ -209,6 +210,9 @@
 }
 #battery.warning:not(.charging) {
   color: #e78284;
+}
+#custom-lock {
+  color: #babbf1;
 }
 
 /* --- Tooltip Styles --- */
@@ -222,5 +226,3 @@ tooltip {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   font-size: 12px;
 }
-
-
