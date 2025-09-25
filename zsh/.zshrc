@@ -1,13 +1,13 @@
 # Force full prompt in GUI terminals
-if [[ -n "$WAYLAND_DISPLAY" ]] || [[ -n "$DISPLAY" ]]; then
-  export COLORTERM=truecolor
-  export TERM=xterm-256color
-
-  # Force Spaceship see terminal width
-  export COLUMNS=$(tput cols)
-  export LINES=$(tput lines)
-
-fi
+# if [[ -n "$WAYLAND_DISPLAY" ]] || [[ -n "$DISPLAY" ]]; then
+#   export COLORTERM=truecolor
+#   export TERM=xterm-256color
+#
+#   # Force Spaceship see terminal width
+#   export COLUMNS=$(tput cols)
+#   export LINES=$(tput lines)
+#
+# fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
